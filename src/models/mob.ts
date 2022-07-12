@@ -1,7 +1,7 @@
-import { resourceUsage } from "process";
+import {setTimeout} from "timers/promises";​
 
 interface Kill{
-    Kill(): boolean | void;
+    Kill(): Promise<boolean> | void;
 }
 
 abstract class Person{
@@ -17,13 +17,32 @@ abstract class Person{
 export class Policeman extends Person  implements Kill{
     rank: string;
     constructor(name: string, age : number, rank: string){
+
         super(name,age);
         this.rank = rank;
     }
-    Kill(): boolean {
+   async Kill(): Promise<boolean> {
+        await this.useWarningShoots();
+        return this.handle();
+    }
+    
+    async useWarningShoots(){
         console.log('paw paw warning shoots');
-        console.log('kill');
-        return true;
+        await setTimeout(5000);
+    }
+
+    handle(): boolean{
+        var randomNumber = Math.random();
+        if(randomNumber > 0.5){
+            console.log('criminal is resisting');
+            console.log('shoot to kill! pow pow');
+            return true;
+        }else{
+            console.log('criminal stooped atacking');
+            console.log('officer put is gun away');
+            return false;
+        }
+
     }
 }
 
