@@ -1,1 +1,27 @@
-<p>first-comp works!</p>
+<div>
+    <h3>This directive exampels with persons</h3>
+    <div *ngIf="persons.length > 0">
+        <li *ngFor="let person of persons">
+            <div 
+            [ngStyle]="{'background-color':person.age === 34 ? 'green' : 'yellow' }"
+            [ngClass]="{'text-white': person.age === 34}">
+                <ul>Name : {{person.name}}</ul>
+                <ul>Age : {{person.age}}</ul>
+           </div>
+        </li>
+    </div>
+    <button (click)="clearPersons()">Clear</button>
+    <button (click)="fillPersons()">Fill</button>
+
+    <div>
+        <input type="text" [(ngModel)]="selectedValue">
+        <p>to work work with ngModel you must import forms module</p>
+        <container-element [ngSwitch]="selectedValue">
+            <p *ngSwitchCase="'Dor'">הפעם נרצה להציג את הראשון</p>
+            <p *ngSwitchCase="'Dana'">כעת נציג את השני</p>
+            <p *ngSwitchDefault>כרגע אין להציג</p>
+        </container-element>
+    </div>
+
+</div>
+

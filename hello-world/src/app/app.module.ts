@@ -12,7 +12,8 @@ import { FirstComponent } from './first-comp/first-comp.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
