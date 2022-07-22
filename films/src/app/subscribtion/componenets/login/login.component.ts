@@ -20,4 +20,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  doOnBlurPassword(str: string){
+    alert(str);
+  }
+
 }

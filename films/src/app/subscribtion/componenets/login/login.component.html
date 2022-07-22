@@ -4,6 +4,8 @@
         [label]="label"
         [formControl]="control"
         [placeholder]="placeholder"
-        [explanationText]="explanationText">
+        [explanationText]="explanationText"
+        (blurPassword)="doOnBlurPassword($event)"
+        >
     </app-field-password>
 </div>

@@ -17,8 +17,7 @@ export class FieldPasswordComponent implements OnInit {
   patternAllow: RegExp | null = null;
   inputType: string = "text";
   isValidationIcon: boolean = false;
-//  @Output() blur: EventEmitter<any> = new EventEmitter();
-//  @Output() focus: EventEmitter<any> = new EventEmitter();
+  @Output() blurPassword: EventEmitter<string> = new EventEmitter();
 
   ngOnInit(): void {
     }
@@ -28,17 +27,9 @@ export class FieldPasswordComponent implements OnInit {
   }
 
   onBlur(event: any){
+    console.log(event);
+    this.blurPassword.emit(this.label);
   }
 
-  
-  get value(): any {
-    if (!this.formControl.value) {
-      return '';
-    }
-    else return this.formControl.value;
-  }
 
-  set value(val) {
-    this.formControl.setValue(val);
-  }
 }
