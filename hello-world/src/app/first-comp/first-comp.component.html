@@ -1,12 +1,32 @@
 <div>
+    <h3>{{asyncVal}}</h3>
+    <h3>{{asyncVal | async}}</h3>
+
+    <p appMyColorWithRenderer [txtColor]="'purple'" *appUnless="condition">
+    paragraph content
+    </p>
+      <pre>{{condition}}</pre>
     <h3>This directive exampels with persons</h3>
+    <div>
+        <label>One way binding input example</label>
+        <br/>
+        <input #example type="text" (blur)="outOfInputField(example.value)"/>
+    </div>
+    <div>
+        <label>Filter pipe</label>
+        <br/>
+        <input  type="number" [(ngModel)]="filterByAge" />
+    </div>
     <div *ngIf="persons.length > 0">
-        <li *ngFor="let person of persons">
+        <li *ngFor="let person of persons | filterByAge: filterByAge">
             <div 
             [ngStyle]="{'background-color':person.age === 34 ? 'green' : 'yellow' }"
             [ngClass]="{'text-white': person.age === 34}">
-                <ul>Name : {{person.name}}</ul>
-                <ul>Age : {{person.age}}</ul>
+                <ul>Id : {{person.id | getLast: 4}}</ul>
+                <ul>Name : {{person.name | uppercase}}</ul>
+                <ul>Age : {{person.age }}</ul>
+                <ul>Balance : {{person.balance | currency:'USD'}}</ul>
+                <ul>Birthday : {{person.balance | date:'d/M/y'}}</ul>
            </div>
         </li>
     </div>
