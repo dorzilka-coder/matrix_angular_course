@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <app-field-password  #passRef
         [elementId]="id"
         [label]="label"
@@ -8,4 +8,46 @@
         (blurPassword)="doOnBlurPassword($event)"
         >
     </app-field-password>
+</div> -->
+<h1>Login Form</h1> 
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm"> 
+    <div ngModelGroup="userData">
+    <label for="name">Name</label> 
+    <input required #name="ngModel"
+        id="name"
+        ngModel
+        name="name" 
+        class="form-control"
+    > 
+    <div [hidden]="name.valid || name.pristine" > 
+      Name is required 
+    </div> 
+<br/> 
+<label for="name">Last name</label> 
+    <input required #lName="ngModel"
+        id="lName"
+        ngModel
+        name="lName" 
+        class="form-control"
+    > 
+    <div [hidden]="lName.valid || lName.pristine" > 
+      Last Name is required 
+    </div> 
+<br/> 
+</div>
+    <label for="platform ">platform:</label> 
+    <select #platform="ngModel" required 
+             ngModel
+             name="platform" 
+             class="form-control">
+        <option *ngFor="let x of ['facebook','gmail','github']" [value]="x"> {{x}}</option> 
+    </select> 
+    <div [hidden]="platform.valid || platform.pristine"> 
+      Platform is required 
+    </div> 
+<br/><br/> 
+  <button type="submit" [disabled]="!loginForm.valid">Submit</button> 
+</form> 
+<div [hidden]="!loginForm.submitted"> 
+    <h2>You Logged as :  {{ name.value }}</h2> 
 </div>
