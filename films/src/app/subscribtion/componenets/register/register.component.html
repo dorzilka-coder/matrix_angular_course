@@ -1,1 +1,26 @@
-<p>register works!</p>
+<section>
+    <h1>Reactive Form Example:</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p>
+            <label>First Name:</label>
+            <input (blur)="pn()" type="text" formControlName="firstName">
+        </p>
+        <p>
+            <label>Last Name:</label>
+            <input (blur)="pn()" type="text" formControlName="lastName">
+        </p>
+        <!-- <div formGroupName="passwordGroup"> -->
+            <p>
+                <label>Password:</label>
+                <input (blur)="pn()" type="password" formControlName="password">
+            </p>
+            <p>
+                <label>Password:</label>
+                <input (blur)="pn()" type="password" formControlName="verifyPassword">
+            </p>
+        <!-- </div> -->
+        <p>
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+    </form>
+</section>
