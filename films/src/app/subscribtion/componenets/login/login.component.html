@@ -18,12 +18,13 @@
         ngModel
         name="name" 
         class="form-control"
+        pattern="[A-Za-z0-9]{5,5}"
     > 
     <div [hidden]="name.valid || name.pristine" > 
-      Name is required 
+      Name is required at least 5 char
     </div> 
 <br/> 
-<label for="name">Last name</label> 
+<label for="lName">Last name</label> 
     <input required #lName="ngModel"
         id="lName"
         ngModel

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   submitted = false; 
   onSubmit(f: NgForm) {
       console.log(f);
-      console.log(f.value.userData.name);
+      console.log('name : ' + f.value.userData.name);
      }
 
   id: string = 'password-login'

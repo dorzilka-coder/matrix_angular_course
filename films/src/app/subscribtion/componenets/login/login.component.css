@@ -1,13 +1,13 @@
 .ng-valid { 
     color: blue; 
   } 
-.ng-invalid { 
+  .ng-invalid { 
     color: red; 
   } 
 .ng-valid[required], .ng-valid.required  { 
     border-bottom: 5px solid green;  
   } 
-.ng-invalid:not(form)  { 
+.ng-invalid:not(form):not(.ng-pristine)  { 
     border-bottom: 5px solid red;  
   } 
   
